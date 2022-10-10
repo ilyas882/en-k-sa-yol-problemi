@@ -1,0 +1,47 @@
+from pqdict import pqdict
+
+def dijkstra(G,basla,bitis):
+    # nihai uzakliklarin sozlugu
+    D = {}  
+    # ebeveyn dugumlerin sozlugu
+    P = {}  
+    # dugumlerin baslangica olan tahmini uzakliginin kuyrugu
+    Q = pqdict() 
+
+    Q[basla] = 0
+
+    while len(Q)>0:
+       (v,vv) = Q.popitem()
+       D[v] = vv
+       for w in G[v]:
+          vwLength = D[v] + G[v][w]
+          if w in D:
+              if vwLength < D[w]:
+                  raise ValueError("sonuca giden daha iyi yol bulundu")
+          elif w not in Q or vwLength < Q[w]:
+              Q[w] = vwLength
+              P[w] = v
+    path = []
+    while 1:
+       path.append(bitis)
+       if bitis == basla: break
+       bitis = P[bitis]
+    path.reverse()
+    return path
+
+G = {'erzincan':{'2':3, '3':7}, '2':{'4':1, '5':6},'4':{'6':2}, '6':{'Balıkesir':2}, 'Balıkesir':{'Balıkesir':0},
+     '3':{'4':4, '5':3}, '5':{'Balıkesir':4}}
+path = dijkstra(G, 'erzincan', 'Balıkesir')
+
+
+#gidilen yolun toplam uzunluğunu bulma
+yol=0
+for i in range(4):
+    yol+=G[path[i]][path[i+1]]
+
+
+print ("en kısa yol :",path," yoludur")
+print("gidilen yol toplam :",yol*100,"km")
+
+
+
