@@ -1,130 +1,168 @@
-Final Report:
+Final Sustainability Report:
 
-Data Analysis:
-## Veri Seti Analizi Özeti
+### Data Analysis:
+## Data Report Summary and Analysis
 
-Bu veri seti, 499 satır ve 11 sütun içeren bir gaz türbini performansı veri setini temsil ediyor. Her sütun, türbinin farklı parametrelerini ölçen değişkenleri temsil ediyor.
+This dataset contains 499 rows and 11 columns, representing various operational parameters of a gas turbine.  There are no missing values in the dataset, which is a positive aspect for analysis.
 
-**Genel olarak:**
+**Key Trends:**
 
-* Veri setinde eksik değer bulunmuyor.
-* Çoğu sütun, benzersiz değerlerin sayısıyla ilgili olarak, büyük olasılıkla sürekli değişkenler içeriyor.
-* Tüm değişkenler float64 veri türünde.
-* Genel olarak, çoğu değişken hafifçe negatif eğriliğe ve basıklığına sahip. Bu, verilerin simetrik olmaktan çok hafifçe sol çarpık olduğunu gösteriyor.
+* **Ambient Temperature:**  Shows a relatively normal distribution with a slight negative skew. This indicates the ambient temperature generally stays within a specific range.
+* **Ambient Pressure:** Also exhibits a near-normal distribution with a small positive skew, indicating slight variations around a central value.
+* **Ambient Humidity:**  Has a negative skew, suggesting a concentration of data points towards higher humidity levels. This could be relevant for studying the impact of humidity on turbine performance.
+* **Air Filter Difference Pressure:**  Displays a near-normal distribution with a minimal skew, indicating stable and consistent air filter performance.
+* **Gas Turbine Exhaust Pressure:**  A slightly positive skew suggests a tendency for higher exhaust pressure values. 
+* **Turbine Inlet Temperature:**  A small negative skew suggests a concentration of data points around the lower end of the temperature range.
+* **Turbine After Temperature:**  Displays a near-normal distribution with a slight negative skew, suggesting consistent turbine output temperatures.
+* **Turbine Energy Yield:**  The data exhibits a near-normal distribution with a minimal skew, suggesting a consistent energy output from the turbine.
+* **Compressor Discharge Pressure:** A near-normal distribution with a slight positive skew suggests a tendency for higher compressor discharge pressures.
+* **Carbon Monoxide:** The data is highly skewed to the right, indicating the presence of outliers and a significant number of lower carbon monoxide values with a few very high values. This could be due to specific operational conditions or issues.
+* **Nitrogen Oxides:**  Displays a slightly positive skew, suggesting a trend towards higher nitrogen oxide levels.
 
-**Önemli bulgular:**
+**Anomalies and Important Statistical Insights:**
 
-* **Ambient temperature (°C):** Ortalama sıcaklık yaklaşık 9.75 °C, standart sapma 2.68 °C. Sıcaklık dağılımı, -0.08 eğriliğe ve -0.88 basıklığına sahip.
-* **Ambient pressure (mbar):** Ortalama basınç yaklaşık 1017.23 mbar, standart sapma 5.03 mbar. Basınç dağılımı, 0.12 eğriliğe ve -1.05 basıklığına sahip.
-* **Ambient humidity (%):** Ortalama nem seviyesi %88.31, standart sapma %6.25. Nem dağılımı, -0.69 eğriliğe ve 0.64 basıklığına sahip.
-* **Air filter difference pressure (mbar):** Ortalama hava filtresi basınç farkı yaklaşık 4.28 mbar, standart sapma 0.58 mbar. Basınç farkı dağılımı, -0.02 eğriliğe ve -1.76 basıklığına sahip.
-* **Gas turbine exhaust pressure (mbar):** Ortalama gaz türbini egzoz basıncı yaklaşık 28.30 mbar, standart sapma 4.43 mbar. Egzoz basıncı dağılımı, 0.02 eğriliğe ve -1.85 basıklığına sahip.
-* **Turbine inlet temperature (°C):** Ortalama türbin giriş sıcaklığı yaklaşık 1092.36 °C, standart sapma 7.68 °C. Giriş sıcaklığı dağılımı, -0.15 eğriliğe ve -1.62 basıklığına sahip.
-* **Turbine after temperature (°C):** Ortalama türbin çıkış sıcaklığı yaklaşık 539.10 °C, standart sapma 10.72 °C. Çıkış sıcaklığı dağılımı, -0.12 eğriliğe ve -1.70 basıklığına sahip.
-* **Turbine energy yield (MWH):** Ortalama türbin enerji verimi yaklaşık 147.72 MWH, standart sapma 13.88 MWH. Enerji verimi dağılımı, 0.02 eğriliğe ve -1.85 basıklığına sahip.
-* **Compressor discharge pressure (mbar):** Ortalama kompresör çıkış basıncı yaklaşık 12.94 mbar, standart sapma 1.10 mbar. Çıkış basıncı dağılımı, 0.03 eğriliğe ve -1.83 basıklığına sahip.
-* **Carbon monoxide (mg/m3):** Ortalama karbon monoksit seviyesi yaklaşık 0.70 mg/m3, standart sapma 0.61 mg/m3. Karbon monoksit dağılımı, 6.41 eğriliğe ve 61.88 basıklığına sahip. Bu, verilerin sağa doğru büyük bir çarpıklık gösterdiğini ve bazı aykırı değerlerin olası olduğunu gösterir.
-* **Nitrogen oxides (mg/m3):** Ortalama azot oksit seviyesi yaklaşık 71.82 mg/m3, standart sapma 7.96 mg/m3. Azot oksit dağılımı, 0.20 eğriliğe ve -0.84 basıklığına sahip.
+* **Carbon Monoxide (mg/m3):**  The highly skewed distribution of Carbon Monoxide levels suggests the presence of outliers or potential operational issues. Further investigation into these high values is crucial to understand the causes and potential risks.
+* **Turbine Energy Yield (MWH):** While the data generally shows a consistent energy output, further analysis could investigate potential correlations between energy yield and other parameters like ambient conditions or turbine temperatures.
+* **Turbine Inlet Temperature (C):** The limited range of unique values compared to other variables suggests possible sensor limitations or a more controlled operating environment.
 
-Bu veriler, gaz türbininin performansı hakkında çeşitli analizler ve modellemeler yapmak için kullanılabilir.
+**Areas for Further Investigation:**
 
-**Ek analiz önerileri:**
+* **Carbon Monoxide Outliers:**  Investigate the specific instances where Carbon Monoxide levels are significantly higher. This could involve analyzing related data points (e.g., operating conditions, other emissions) to identify potential causes.
+* **Correlation Analysis:** Conduct a correlation analysis to assess relationships between different variables, such as the impact of ambient temperature or humidity on turbine efficiency or emissions.
+* **Time Series Analysis:**  If the data includes a time component, perform time series analysis to identify trends, seasonality, or anomalies over time.
+* **Statistical Modeling:**  Develop predictive models based on the data to forecast turbine performance, identify potential operational issues, or optimize performance based on various parameters.
 
-* Verilerin görselleştirilmesi, değişkenler arasındaki ilişkileri keşfetmek için faydalı olacaktır.
-* Bazı değişkenler arasında potansiyel korelasyonlar olup olmadığını araştırın.
-* Özellikle karbon monoksit değişkeni için aykırı değerleri araştırın.
-* Türbin verimliliğini etkileyen en önemli değişkenleri belirlemek için istatistiksel analizler yapın.
-
-Feature Importance Explanation:
-This feature importance ranking is likely generated by a machine learning model that was trained to predict some outcome related to a gas turbine or a similar energy generation system. Here's a breakdown of the features and their importance:
-
-**Key Features:**
-
-* **Air filter difference pressure (mbar):**  This is the most important feature, suggesting that the pressure difference across the air filter has a significant impact on the target variable. A higher pressure difference might indicate a clogged filter, leading to reduced airflow and efficiency.
-* **Nitrogen oxides (mg/m3):**  The second most important feature highlights the impact of nitrogen oxides emissions on the target variable. This could be related to factors like turbine performance, environmental regulations, or fuel efficiency.
-* **Turbine energy yield (MWH):**  This feature signifies the importance of the turbine's overall energy output in the prediction. 
-
-**Other Important Features:**
-
-* **Ambient temperature (°C), Ambient pressure (mbar), Ambient humidity (%):** These features indicate that environmental conditions are important factors.  A gas turbine's performance is often affected by temperature, pressure, and humidity.
-* **Compressor discharge pressure (mbar), Gas turbine exhaust pressure (mbar):** These features relate to the pressures within the gas turbine system, suggesting that pressure variations can impact the target variable.
-* **Turbine after temperature (°C), Turbine inlet temperature (°C):** These features show the importance of turbine temperature variations, which can affect efficiency and combustion processes.
-
-**Interpreting Importance:**
-
-The importance values (e.g., 0.375096 for air filter pressure) are relative. They indicate the relative contribution of each feature to the model's predictions. A feature with a higher importance value is considered more influential than one with a lower value.
-
-**Potential Uses:**
-
-This feature importance ranking can be used for:
-
-* **Understanding the system:** By analyzing the importance of each feature, engineers and operators can gain insights into how different factors influence the gas turbine's performance.
-* **Optimizing performance:** Focusing on the most important features can help optimize the gas turbine's operation by adjusting parameters, scheduling maintenance, or implementing control strategies.
-* **Predictive maintenance:** By monitoring the key features, it's possible to predict potential issues and schedule preventative maintenance before they lead to failures.
-
-**Caveats:**
-
-* **Model-specific:** The feature importance ranking is specific to the machine learning model used and the data it was trained on. The ranking might change if a different model or dataset is used.
-* **Correlation:** It's important to note that correlated features can make interpreting importance values more challenging.
-
-Overall, this feature importance ranking provides valuable information for understanding and optimizing the performance of a gas turbine system. By focusing on the most influential factors, engineers and operators can make informed decisions to improve efficiency, reduce emissions, and prevent failures. 
+By further investigating these areas, you can gain deeper insights into the gas turbine's performance, identify potential risks, and improve operational efficiency.
 
 
-Sustainability Context:
-## ABC Teknoloji A.Ş. Sürdürülebilirlik Stratejisi
+### Feature Importance Explanation:
+## Feature Importance Ranking for Carbon Emission Reduction
 
-**Giriş**
+The provided feature importance ranking sheds light on the key factors influencing carbon emissions in a gas turbine system, likely a power plant. Understanding these factors is crucial for optimizing emissions reduction strategies.
 
-ABC Teknoloji A.Ş., teknolojinin gücünü kullanarak işletmelere yenilikçi çözümler sunan ve sürdürülebilir bir geleceğe olan bağlılığını vurgulayan bir şirkettir. Bu strateji, ABC Teknoloji'nin çevresel, sosyal ve yönetişimsel (ESG) performansını iyileştirmek için somut adımlar atmasını sağlayarak, şirketin vizyonunu ve misyonunu destekleyecektir.
+**Top Features and their Significance:**
 
-**Hedefler**
+**1. Air Filter Difference Pressure (mbar):**  
+* **Significance:** This feature represents the pressure drop across the air filter, indicating its level of clogging. A higher pressure drop signifies a more restricted airflow, forcing the turbine to operate at a lower efficiency.  
+* **Optimization:** Regular maintenance, including cleaning or replacing air filters, is essential. Implementing predictive maintenance models based on pressure readings can help identify and address clogging before it significantly impacts efficiency and emissions. 
 
-* **Çevre:**
-    * Enerji tüketimini ve karbon emisyonlarını azaltmak.
-    * Atık yönetimini iyileştirmek ve geri dönüşümü teşvik etmek.
-    * Sürdürülebilir kaynakları kullanmak.
-* **Sosyal:**
-    * Çalışanların refahını ve çeşitliliği desteklemek.
-    * Toplum için faydalı projelere katılmak.
-    * Etik ve sorumlu iş uygulamaları teşvik etmek.
-* **Yönetişim:**
-    * Şeffaflığı ve hesap verebilirliği artırmak.
-    * İyi yönetişim ilkelerini benimsemek.
-    * Riskleri yönetmek ve uyumluluğu sağlamak.
+**2. Nitrogen Oxides (mg/m3):** 
+* **Significance:** This is a direct indicator of NOx emissions, a major contributor to air pollution and climate change.  
+* **Optimization:**  Optimizing combustion parameters, such as air-fuel ratio and combustion temperature, is crucial. Implementing NOx reduction technologies like Selective Catalytic Reduction (SCR) systems can further reduce NOx emissions.
 
-**Eylem Planı**
+**3. Ambient Temperature (°C):** 
+* **Significance:**  Higher ambient temperatures negatively affect turbine efficiency.  Hotter air has a lower density, reducing the amount of oxygen available for combustion.
+* **Optimization:**  Optimizing cooling systems and implementing heat recovery systems can mitigate the impact of high ambient temperatures.
 
-**Çevre:**
+**4. Turbine Energy Yield (MWH):** 
+* **Significance:** This metric reflects the overall efficiency of the turbine.  Higher energy yield indicates lower fuel consumption and thus lower emissions.
+* **Optimization:**  Improving turbine design, implementing advanced control systems, and optimizing operational parameters can enhance efficiency and reduce emissions.
 
-* **Enerji Verimliliği:** Binaların enerji verimliliğini artırmak, enerji tasarruflu cihazlar kullanmak, yenilenebilir enerji kaynaklarını araştırmak.
-* **Atık Yönetimi:** Atık miktarını azaltmak, geri dönüşümü teşvik etmek, kompostlama uygulamaları başlatmak.
-* **Sürdürülebilir Kaynaklar:** Geri dönüştürülmüş malzemelerden üretilen ürün ve ekipmanları kullanmak, sürdürülebilir tedarikçilerle işbirliği yapmak.
+**5. Ambient Pressure (mbar):** 
+* **Significance:** Lower ambient pressure negatively impacts turbine performance.  Similar to temperature, this affects air density and oxygen availability for combustion.
+* **Optimization:**  Implementing strategies to operate at higher altitudes or during periods of higher atmospheric pressure could improve efficiency. 
 
-**Sosyal:**
+**6. Ambient Humidity (%):** 
+* **Significance:**  High humidity negatively affects combustion efficiency, as water vapor competes with oxygen for combustion.
+* **Optimization:**  Implementing dehumidification systems or adjusting operating parameters to account for humidity fluctuations can minimize its impact. 
 
-* **Çalışan Refahı:** Esnek çalışma saatleri, iş-yaşam dengesi destekleri, sağlıklı yaşam programları sağlamak.
-* **Çeşitlilik ve Kapsayıcılık:** Kadın, engelli ve farklı kültürlerden gelen çalışanların istihdamını teşvik etmek.
-* **Toplumsal Etki:** Eğitim ve teknoloji odaklı sosyal sorumluluk projeleri desteklemek, gönüllülük programları oluşturmak.
-* **Etik İş Uygulamaları:** Şeffaflık, dürüstlük ve etik davranış ilkesini benimsemek, çalışanlara etik eğitim programları sunmak.
+**7. Compressor Discharge Pressure (mbar):** 
+* **Significance:**  This feature reflects the pressure of air leaving the compressor.  Higher pressure indicates more efficient compression, but also potentially increased energy consumption.
+* **Optimization:**  Fine-tuning compressor operation, considering pressure drop across other components, and optimizing control strategies can improve overall efficiency.
 
-**Yönetişim:**
+**8. Gas Turbine Exhaust Pressure (mbar):** 
+* **Significance:**  This indicates the pressure of the exhaust gas, which is a major contributor to emissions.
+* **Optimization:**  Optimizing turbine design, including exhaust nozzle and diffuser configuration, can improve exhaust pressure and reduce emissions.
 
-* **Şeffaflık ve Hesap Verebilirlik:** Sürdürülebilirlik raporları yayınlamak, paydaşlarla düzenli iletişim kurmak.
-* **İyi Yönetişim İlkeleri:** İyi yönetişim ilkelerini benimsemek, bağımsız denetim ve gözetim mekanizmaları kurmak.
-* **Risk Yönetimi:** Çevresel, sosyal ve ekonomik riskleri analiz etmek ve yönetim planları geliştirmek.
+**9. Turbine After Temperature (°C):**
+* **Significance:** This reflects the temperature of the gas after it passes through the turbine. Higher temperature indicates less efficient energy extraction.
+* **Optimization:**  Optimizing turbine blade design, materials, and cooling systems can improve efficiency and reduce the temperature of the exhaust gas.
 
-**Ölçüm ve Takip**
+**10. Turbine Inlet Temperature (°C):** 
+* **Significance:** This feature reflects the temperature of the gas entering the turbine.  Higher temperature means more energy is available for work, but it also increases the risk of turbine damage.
+* **Optimization:** Optimizing combustion parameters to maintain a stable and optimal inlet temperature within safe operating limits is crucial.
 
-* Belirlenen hedeflere ulaşma ilerlemesini düzenli olarak izlemek ve raporlamak.
-* Performans göstergeleri (KPI) kullanarak ilerlemeyi ölçmek.
-* Sürdürülebilirlik raporları ile sonuçları paydaşlarla paylaşmak.
 
-**İletişim**
+**Overall Optimization Strategies:**
 
-* Sürdürülebilirlik stratejisini ve faaliyetlerini tüm paydaşlara açık bir şekilde duyurmak.
-* Web sitesi, sosyal medya ve diğer platformlar aracılığıyla iletişim kurmak.
-* Paydaşlarla işbirliği yapmak ve geri bildirim almak.
+* **Predictive Maintenance:** Implementing predictive maintenance systems based on data from the features in the ranking will be crucial for anticipating and preventing potential issues that could lead to increased emissions. 
+* **Advanced Control Systems:**  Sophisticated control systems that adjust operating parameters in real-time based on factors like ambient conditions, turbine performance, and emissions levels can optimize efficiency and minimize emissions.
+* **Technology Adoption:** Utilizing NOx reduction technologies like SCR and implementing optimized combustion strategies are vital for reducing harmful emissions.
+* **Data Analysis and Modeling:**  Analyzing historical data and implementing machine learning models can identify trends and develop personalized optimization strategies for different operating conditions.
 
-**Sonuç**
+By implementing these strategies, power plants can leverage the insights from the feature importance ranking to significantly reduce their carbon footprint and contribute to a more sustainable energy future. 
 
-ABC Teknoloji A.Ş. bu stratejiyi uygulayarak, çevresel ve sosyal etkisini azaltmak ve işlerini daha sürdürülebilir hale getirmek için adımlar atacak. Bu strateji, şirketin etik, sorumlu ve sürdürülebilir bir şekilde büyümesini sağlayarak, sektörde bir örnek teşkil etmesini hedefliyor. 
+
+### Sustainability Context:
+## Sustainability Strategy for ABC Technology Inc.
+
+**Executive Summary:** 
+
+This sustainability strategy outlines ABC Technology Inc.'s commitment to environmental, social, and governance (ESG) principles, aligning with its vision of becoming a global leader in sustainable technology solutions. The strategy focuses on reducing carbon emissions, promoting ethical practices, and fostering a culture of sustainability within the organization. 
+
+**1. Vision and Guiding Principles:**
+
+* **Vision:** To be a globally recognized leader in technology and offer sustainable solutions that benefit our employees, customers, and the planet.
+* **Guiding Principles:**
+    * **Environmental Responsibility:** Minimize our environmental footprint through responsible resource management and emissions reduction.
+    * **Social Impact:** Promote ethical business practices, diversity and inclusion, and community engagement.
+    * **Governance Transparency:** Adhere to high ethical standards and maintain transparency in our operations and reporting.
+
+**2. Key Sustainability Goals:**
+
+* **Carbon Emission Reduction:** Achieve a 20% reduction in Scope 1 and 2 emissions by 2025, and a 50% reduction by 2030, relative to 2022 baseline.
+* **Renewable Energy Transition:** Transition to 100% renewable energy sources for office operations by 2025.
+* **Sustainable Procurement:** Implement a sustainable procurement policy prioritizing suppliers with strong ESG performance.
+* **Employee Engagement and Wellbeing:** Foster a culture of sustainability through employee training, awareness programs, and participation in environmental initiatives.
+* **Community Engagement:** Support local communities through technology-based solutions and social impact initiatives.
+* **Data Privacy and Security:** Ensure data security and privacy in all operations, aligned with international best practices.
+
+**3. Actionable Steps:**
+
+**3.1 Carbon Emission Reduction:**
+
+* **Energy Efficiency:** Implement energy-efficient practices in office buildings, including LED lighting upgrades, smart thermostats, and optimization of HVAC systems.
+* **Renewable Energy:** Install solar panels on office buildings and explore renewable energy supply agreements.
+* **Employee Engagement:** Encourage eco-friendly transportation practices like carpooling, public transport, and cycling.
+* **Cloud Optimization:** Implement cloud technologies and optimize existing systems to reduce energy consumption.
+* **Data Center Efficiency:** Evaluate data center operations and implement energy-saving strategies.
+
+**3.2 Sustainable Procurement:**
+
+* **Develop a Sustainable Procurement Policy:** Define criteria for evaluating supplier sustainability performance, including environmental impact, social responsibility, and ethical practices.
+* **Engage with Suppliers:** Partner with suppliers who share a commitment to sustainability and encourage them to adopt sustainable practices.
+* **Monitor and Report:** Track supplier sustainability performance and report findings publicly.
+
+**3.3 Employee Engagement and Wellbeing:**
+
+* **Sustainability Training:** Conduct regular employee training on sustainability topics, including energy efficiency, waste reduction, and ethical sourcing.
+* **Green Initiatives:** Implement workplace recycling programs and encourage employees to participate in volunteering opportunities.
+* **Health and Wellness Programs:** Promote employee health and well-being through programs that encourage sustainable lifestyle choices.
+
+**3.4 Community Engagement:**
+
+* **Technology for Social Good:** Partner with NGOs and community organizations to develop and implement technology solutions for social impact.
+* **Education and Outreach:** Conduct workshops and training programs for local communities on technology and sustainability.
+* **Pro Bono Services:** Offer pro bono services to non-profit organizations and social enterprises.
+
+**4. Reporting and Transparency:**
+
+* **Annual Sustainability Report:** Publish an annual sustainability report that details our progress against our key sustainability goals and highlights our sustainability achievements.
+* **Third-Party Verification:** Seek third-party verification of our sustainability data and reporting to ensure accuracy and credibility.
+* **Stakeholder Engagement:** Regularly engage with stakeholders, including employees, customers, investors, and the community, to gather feedback and ensure transparency in our sustainability initiatives.
+
+**5. Long-Term Sustainability Planning:**
+
+* **Integration of Sustainability into Business Strategy:** Embed sustainability considerations into all business decisions, including product development, marketing, and customer engagement.
+* **Continuous Improvement:** Regularly review and update our sustainability strategy to reflect industry best practices, changing regulations, and emerging technologies.
+* **Innovation and Development:** Invest in research and development of sustainable technology solutions that address environmental and social challenges.
+
+**Implementation Timeline:**
+
+* **Year 1:** Implement initial energy efficiency measures, develop a sustainable procurement policy, launch employee sustainability training programs, and partner with local community organizations.
+* **Year 2:** Transition to 50% renewable energy for office operations, prioritize sustainable suppliers, and develop a pilot project for technology for social good.
+* **Year 3:** Achieve 100% renewable energy for office operations, implement a comprehensive sustainability reporting system, and expand community engagement initiatives.
+
+**Conclusion:**
+
+By implementing this comprehensive sustainability strategy, ABC Technology Inc. can become a leader in sustainable technology solutions, attracting talented individuals, fostering customer loyalty, and contributing to a more sustainable future. This strategy will be reviewed and updated regularly to ensure it remains aligned with best practices and relevant to the company's evolving goals. 
